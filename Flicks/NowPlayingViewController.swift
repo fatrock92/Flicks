@@ -53,11 +53,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell") as? CustomTableViewCell
-        if (cell == nil) {
-            return UITableViewCell()
-        }
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
