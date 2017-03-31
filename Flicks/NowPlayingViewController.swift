@@ -10,7 +10,9 @@ import UIKit
 import AFNetworking
 
 class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    var movieDB: [NSDictionary] = []
+    var movieDB: [NSDictionary]?
+    let apiKey = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+    let nowPlayingURL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
     
     @IBOutlet weak var nowPlayingTableView: UITableView!
     
@@ -18,10 +20,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidLoad()
         nowPlayingTableView.delegate = self
         nowPlayingTableView.dataSource = self
-        nowPlayingTableView.rowHeight = 240;
+        nowPlayingTableView.rowHeight = 125;
 
         // Get the movie DB
-        let url = URL(string:"https://api.tumblr.com/v2/blog/humansofnewyork.tumblr.com/posts/photo?api_key=Q6vHoaVm5L1u2ZAW1fqv3Jw48gFzYVg9P0vH0VHl3GVy6quoGV")
+        let url = URL(string: nowPlayingURL)
         let request = URLRequest(url: url!)
         let session = URLSession(
             configuration: URLSessionConfiguration.default,
@@ -35,33 +37,47 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
                 if let data = data {
                     if let responseDictionary = try! JSONSerialization.jsonObject(
                         with: data, options:[]) as? NSDictionary {
-                        //print("responseDictionary: \(responseDictionary)")
+                        print("responseDictionary: \(responseDictionary)")
                         
-                        // Recall there are two fields in the response dictionary, 'meta' and 'response'.
-                        // This is how we get the 'response' field
-                        let responseFieldDictionary = responseDictionary["response"] as! NSDictionary
-                        self.movieDB = responseFieldDictionary["posts"] as! [NSDictionary]
+                        self.movieDB = responseDictionary["results"] as? [NSDictionary]
+                        self.nowPlayingTableView.reloadData()
                     }
+                }
+                if let error = error {
+                    print(error)
+                    // show the error here!!
                 }
         });
         task.resume()
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.setToolbarHidden(true, animated: animated)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as! DetailViewController
+        destinationViewController.largePosterImage = nil;
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return (movieDB?.count) ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as! CustomTableViewCell
+        if movieDB != nil {
+            let movie = movieDB![indexPath.row]
+            let title = movie.value(forKey: "title") as? String
+            cell.titleLabel.text = title ?? ""
+            let overview = movie.value(forKey: "overview") as? String
+            cell.descriptionLabel.text = overview ?? " "
+        }
         return cell
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
+            
 
     /*
     // MARK: - Navigation

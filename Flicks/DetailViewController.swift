@@ -9,6 +9,7 @@
 import UIKit
 
 class DetailViewController: UIViewController {
+    @IBOutlet weak var largePosterImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
