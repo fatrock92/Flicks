@@ -105,6 +105,7 @@ class TopRatedTVShowsViewController: UIViewController, UITableViewDelegate, UITa
         let destinationViewController = segue.destination as! DetailViewController
         let cell = sender as! CustomTableViewCell
         destinationViewController.movieDictionary  = cell.movieDictionary
+        cell.setSelected(false, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
