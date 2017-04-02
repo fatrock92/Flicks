@@ -17,6 +17,13 @@
 		8FBAFCC21E8B7B5E005D342C /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAFCC11E8B7B5E005D342C /* NowPlayingViewController.swift */; };
 		8FBAFCC41E8CCF2B005D342C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAFCC31E8CCF2B005D342C /* DetailViewController.swift */; };
 		8FBAFCC61E8CCF95005D342C /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAFCC51E8CCF95005D342C /* CustomTableViewCell.swift */; };
+		8FD98CCC1E905F0B001BEDE3 /* iconmonstr-arrow-66-12.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FD98CCB1E905F0B001BEDE3 /* iconmonstr-arrow-66-12.png */; };
+		8FD98CCE1E906480001BEDE3 /* iconmonstr-calendar-4-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FD98CCD1E906480001BEDE3 /* iconmonstr-calendar-4-16.png */; };
+		8FD98CD41E906C79001BEDE3 /* TopRatedTVShowsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD98CD21E906C79001BEDE3 /* TopRatedTVShowsViewController.swift */; };
+		8FD98CD51E906C79001BEDE3 /* iconmonstr-star-1-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FD98CD31E906C79001BEDE3 /* iconmonstr-star-1-16.png */; };
+		8FD98CD71E9071CA001BEDE3 /* iconmonstr-television-21-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FD98CD61E9071CA001BEDE3 /* iconmonstr-television-21-24.png */; };
+		8FD98CDB1E90DB57001BEDE3 /* iconmonstr-view-3-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FD98CDA1E90DB57001BEDE3 /* iconmonstr-view-3-16.png */; };
+		8FD98CDD1E90DBDB001BEDE3 /* iconmonstr-view-5-16.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FD98CDC1E90DBDB001BEDE3 /* iconmonstr-view-5-16.png */; };
 		E0BB029B3FFEEB3A8147E61E /* Pods_Flicks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 187491BB8E00B70BA3FF8AFF /* Pods_Flicks.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +42,13 @@
 		8FBAFCC11E8B7B5E005D342C /* NowPlayingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		8FBAFCC31E8CCF2B005D342C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8FBAFCC51E8CCF95005D342C /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		8FD98CCB1E905F0B001BEDE3 /* iconmonstr-arrow-66-12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-arrow-66-12.png"; sourceTree = "<group>"; };
+		8FD98CCD1E906480001BEDE3 /* iconmonstr-calendar-4-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-calendar-4-16.png"; sourceTree = "<group>"; };
+		8FD98CD21E906C79001BEDE3 /* TopRatedTVShowsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedTVShowsViewController.swift; sourceTree = "<group>"; };
+		8FD98CD31E906C79001BEDE3 /* iconmonstr-star-1-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-star-1-16.png"; sourceTree = "<group>"; };
+		8FD98CD61E9071CA001BEDE3 /* iconmonstr-television-21-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-television-21-24.png"; sourceTree = "<group>"; };
+		8FD98CDA1E90DB57001BEDE3 /* iconmonstr-view-3-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-view-3-16.png"; sourceTree = "<group>"; };
+		8FD98CDC1E90DBDB001BEDE3 /* iconmonstr-view-5-16.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iconmonstr-view-5-16.png"; sourceTree = "<group>"; };
 		D1B57E4C9F1720F414748E2E /* Pods-Flicks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flicks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Flicks/Pods-Flicks.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,19 +94,34 @@
 		8FBAFCA81E8B6348005D342C /* Flicks */ = {
 			isa = PBXGroup;
 			children = (
+				8FD98CD21E906C79001BEDE3 /* TopRatedTVShowsViewController.swift */,
 				8FBAFCA91E8B6348005D342C /* AppDelegate.swift */,
 				8FBAFCC11E8B7B5E005D342C /* NowPlayingViewController.swift */,
 				8FBAFCBF1E8B7B03005D342C /* TopRatedViewController.swift */,
 				8FBAFCAD1E8B6348005D342C /* Main.storyboard */,
 				8FBAFCC51E8CCF95005D342C /* CustomTableViewCell.swift */,
 				8FBAFCC31E8CCF2B005D342C /* DetailViewController.swift */,
+				8FD98CDE1E90DC8A001BEDE3 /* pngfiles */,
 				8FBAFCB01E8B6348005D342C /* Assets.xcassets */,
-				8FBAFCBD1E8B6FF7005D342C /* iconmonstr-star-2-24.png */,
-				8FBAFCBB1E8B6F8D005D342C /* iconmonstr-video-8-24.png */,
 				8FBAFCB21E8B6348005D342C /* LaunchScreen.storyboard */,
 				8FBAFCB51E8B6348005D342C /* Info.plist */,
 			);
 			path = Flicks;
+			sourceTree = "<group>";
+		};
+		8FD98CDE1E90DC8A001BEDE3 /* pngfiles */ = {
+			isa = PBXGroup;
+			children = (
+				8FD98CCB1E905F0B001BEDE3 /* iconmonstr-arrow-66-12.png */,
+				8FD98CDC1E90DBDB001BEDE3 /* iconmonstr-view-5-16.png */,
+				8FD98CCD1E906480001BEDE3 /* iconmonstr-calendar-4-16.png */,
+				8FD98CD31E906C79001BEDE3 /* iconmonstr-star-1-16.png */,
+				8FD98CDA1E90DB57001BEDE3 /* iconmonstr-view-3-16.png */,
+				8FBAFCBD1E8B6FF7005D342C /* iconmonstr-star-2-24.png */,
+				8FD98CD61E9071CA001BEDE3 /* iconmonstr-television-21-24.png */,
+				8FBAFCBB1E8B6F8D005D342C /* iconmonstr-video-8-24.png */,
+			);
+			name = pngfiles;
 			sourceTree = "<group>";
 		};
 		D35AAA7078201DF62BB257CA /* Frameworks */ = {
@@ -165,9 +194,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD98CD51E906C79001BEDE3 /* iconmonstr-star-1-16.png in Resources */,
+				8FD98CCE1E906480001BEDE3 /* iconmonstr-calendar-4-16.png in Resources */,
 				8FBAFCBC1E8B6F8D005D342C /* iconmonstr-video-8-24.png in Resources */,
 				8FBAFCB41E8B6348005D342C /* LaunchScreen.storyboard in Resources */,
+				8FD98CD71E9071CA001BEDE3 /* iconmonstr-television-21-24.png in Resources */,
+				8FD98CCC1E905F0B001BEDE3 /* iconmonstr-arrow-66-12.png in Resources */,
 				8FBAFCB11E8B6348005D342C /* Assets.xcassets in Resources */,
+				8FD98CDD1E90DBDB001BEDE3 /* iconmonstr-view-5-16.png in Resources */,
+				8FD98CDB1E90DB57001BEDE3 /* iconmonstr-view-3-16.png in Resources */,
 				8FBAFCAF1E8B6348005D342C /* Main.storyboard in Resources */,
 				8FBAFCBE1E8B6FF7005D342C /* iconmonstr-star-2-24.png in Resources */,
 			);
@@ -230,6 +265,7 @@
 			files = (
 				8FBAFCC21E8B7B5E005D342C /* NowPlayingViewController.swift in Sources */,
 				8FBAFCC61E8CCF95005D342C /* CustomTableViewCell.swift in Sources */,
+				8FD98CD41E906C79001BEDE3 /* TopRatedTVShowsViewController.swift in Sources */,
 				8FBAFCAA1E8B6348005D342C /* AppDelegate.swift in Sources */,
 				8FBAFCC01E8B7B03005D342C /* TopRatedViewController.swift in Sources */,
 				8FBAFCC41E8CCF2B005D342C /* DetailViewController.swift in Sources */,

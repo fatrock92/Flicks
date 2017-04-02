@@ -14,6 +14,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    weak var movieDictionary: NSDictionary!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

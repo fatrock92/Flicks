@@ -1,33 +1,34 @@
 //
-//  NowPlayingViewController.swift
-//  Flicks
+//  TopRatedTVShowsViewController.swift
+//  
 //
-//  Created by Fateh Singh on 3/28/17.
-//  Copyright © 2017 Fateh Singh. All rights reserved.
+//  Created by Fateh Singh on 4/1/17.
+//
 //
 
 import UIKit
 import AFNetworking
 import MBProgressHUD
 
-class NowPlayingViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+class TopRatedTVShowsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+    
     var movieDB: [NSDictionary]?
     var searchDB = [NSDictionary()]
-    let nowPlayingURL = "https://api.themoviedb.org/3/movie/now_playing?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
+    let nowPlayingURL = "https://api.themoviedb.org/3/tv/top_rated?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed"
     let lowResPosterURL = "https://image.tmdb.org/t/p/w342"
     var refreshControl: UIRefreshControl!
     let searchBar = UISearchBar()
     var segmentedControl = UISegmentedControl()
     var showSearchResults = false
     
-    @IBOutlet weak var nowPlayingTableView: UITableView!
+    @IBOutlet weak var topRatedTVTableView: UITableView!
     @IBOutlet weak var networkErrorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nowPlayingTableView.delegate = self
-        nowPlayingTableView.dataSource = self
-        nowPlayingTableView.rowHeight = 130;
+        topRatedTVTableView.delegate = self
+        topRatedTVTableView.dataSource = self
+        topRatedTVTableView.rowHeight = 130;
         networkErrorLabel.layer.cornerRadius = 10
         networkErrorLabel.layer.masksToBounds = true;
         self.networkErrorLabel.isHidden = true
@@ -61,8 +62,8 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         // Get the movie DB
         refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(self.refreshAction), for: UIControlEvents.valueChanged)
-        nowPlayingTableView.addSubview(refreshControl)
-
+        topRatedTVTableView.addSubview(refreshControl)
+        
         let url = URL(string: nowPlayingURL)
         let request = URLRequest(url: url!)
         let session = URLSession(
@@ -80,7 +81,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
                         print("responseDictionary: \(responseDictionary)")
                         
                         self.movieDB = responseDictionary["results"] as? [NSDictionary]
-                        self.nowPlayingTableView.reloadData()
+                        self.topRatedTVTableView.reloadData()
                         MBProgressHUD.hide(for: self.view, animated: true)
                         self.networkErrorLabel.isHidden = true
                     }
@@ -123,7 +124,10 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         if dictionary != nil {
             let movie = dictionary![indexPath.row]
             cell.movieDictionary = movie
-            let title = movie.value(forKey: "title") as? String
+            var title = movie.value(forKey: "title") as? String
+            if title == nil {
+                title = movie.value(forKey: "name") as? String
+            }
             cell.titleLabel.text = title ?? ""
             let overview = movie.value(forKey: "overview") as? String
             cell.descriptionLabel.text = overview ?? " "
@@ -161,12 +165,15 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         if movieDB != nil {
             for movie in movieDB! {
                 var title = movie.value(forKey: "title") as? String ?? ""
+                if title == "" {
+                    title = movie.value(forKey: "name") as? String ?? ""
+                }
                 title = title.lowercased()
                 if (title.hasPrefix(searchBarText)) {
                     searchDB.append(movie)
                 }
             }
-            nowPlayingTableView.reloadData()
+            topRatedTVTableView.reloadData()
         }
     }
     
@@ -189,7 +196,7 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
                         print("responseDictionary: \(responseDictionary)")
                         
                         self.movieDB = responseDictionary["results"] as? [NSDictionary]
-                        self.nowPlayingTableView.reloadData()
+                        self.topRatedTVTableView.reloadData()
                         self.refreshControl.endRefreshing()
                         self.networkErrorLabel.isHidden = true
                     }
@@ -202,15 +209,5 @@ class NowPlayingViewController: UIViewController, UITableViewDataSource, UITable
         });
         task.resume()
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
